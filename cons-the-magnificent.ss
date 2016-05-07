@@ -43,3 +43,14 @@
                 (cons (car lat) (insertL new old  (cdr lat))))))))) 
 (insertL 'chocolate 'fudge '(ice cream with fudge for dessert))
 
+(define subst
+  (lambda (new old lat)
+    (cond ((null? lat) ())
+          (else
+            (cond ((eq? (car lat) old)
+                   (cons new (cdr lat)))
+                  (else
+                    (cons (car lat) (subst new old (cdr lat)))))))))
+
+(subst 'topping 'fudge '(ice cream with fudge for dessert))
+
