@@ -18,3 +18,8 @@
     (cond ((zero? m) n)
           (else (sub (sub1 n) (sub1 m))))))
 
+(define mult
+  (lambda (n m)
+    (cond ((zero? n) 0)
+          (else (add m (mult (sub1 n) m))))))
+
