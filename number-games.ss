@@ -23,3 +23,15 @@
     (cond ((zero? n) 0)
           (else (add m (mult (sub1 n) m))))))
 
+; Length of a list of atoms
+(define len
+  (lambda (lat)
+    (cond ((null? lat) 0)
+          (else (add1 (len (cdr lat)))))))
+
+; Pick an atom at position `n` on list `lat`
+(define pick
+  (lambda (lat n)
+    (cond ((zero? (sub1 n)) (car lat))
+           (else (pick (cdr lat) (sub1 n))))))
+
