@@ -10,13 +10,13 @@
 (define add
   (lambda (n m)
     (cond ((zero? n) m)
-          (else (add (sub1 n) (add1 m))))))
+          (else (add1 (add m (sub1 n)))))))
 
 ; Subtracts `n` from `m`.
 (define sub
   (lambda (n m)
     (cond ((zero? m) n)
-          (else (sub (sub1 n) (sub1 m))))))
+          (else (sub1 (sub n (sub1 m)))))))
 
 (define mult
   (lambda (n m)
