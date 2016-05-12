@@ -70,3 +70,9 @@
 
 (subst 'topping 'fudge '(ice cream with fudge for dessert))
 
+(define multisubst
+  (lambda (new old lat)
+    (cond ((null? lat) ())
+          ((eq? old (car lat)) (cons new (multisubst new old (cdr lat))))
+          (else
+            (cons (car lat) (multisubst new old (cdr lat)))))))
