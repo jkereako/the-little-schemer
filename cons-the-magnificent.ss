@@ -10,6 +10,13 @@
 (rember 'bacon '(bacon lettuce and tomato))
 (rember 'and '(bacon lettuce and tomato))
 
+(define multirember
+  (lambda (a lat)
+    (cond ((null? lat) ())
+          ((eq? a (car lat)) (multirember a (cdr lat)))
+          (else
+            (cons (car lat) (multirember a (cdr lat)))))))
+
 ; Return the first atom from a list of lists
 (define firsts
   (lambda (l)
