@@ -38,6 +38,15 @@
 
 (insertR 'topping 'fudge '(ice cream with fudge for dessert))
 
+(define multiinsertR
+  (lambda (new old lat)
+    (cond ((null? lat) ())
+          ((eq? old (car lat))
+                (cons (car lat) (cons new (multiinsertR new old (cdr lat)))))
+          (else
+            (cons (car lat) (multiinsertR new old (cdr lat)))))))
+
+
 
 ; Same as above but insert to the left
 (define insertL
