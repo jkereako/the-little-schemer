@@ -34,3 +34,7 @@
           (else
             (and (member? (car set1) set2) (subset? (cdr set1) set2))))))
 
+(define eqset?
+  (lambda (set1 set2)
+    (cond (and (subset? set1 set2) (subset? set2 set1)))))
+
