@@ -59,3 +59,12 @@
           (else
             (cons (car set1) (union (cdr set1) set2))))))
 
+(define
+  (lambda (x)
+    (cond
+      ((atom? x) #f)
+      ((null? x) #f)
+      ((null? (cdr x)) #f)
+      ((null? (cdr (cdr x))) #t)
+      (else #f))))
+
